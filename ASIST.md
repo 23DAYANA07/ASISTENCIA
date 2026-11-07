@@ -265,7 +265,13 @@ def health():
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=int(os.getenv("PORT","5000")),debug=False)
 
-Flask>=3.0,<4.0
+        value: America/Mexico_City
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+
+ Flask>=3.0,<4.0
 qrcode[pil]>=7.4,<9.0
 gunicorn>=22.0,<24.0
 
@@ -284,9 +290,4 @@ services:
     envVars:
       - key: DATA_DIR
         value: /var/data
-      - key: APP_TIMEZONE
-        value: America/Mexico_City
-      - key: ADMIN_PASSWORD
-        sync: false
-      - key: SECRET_KEY
-        generateValue: true
+      - key: APP_TIMEZONE       
